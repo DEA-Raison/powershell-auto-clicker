@@ -27,7 +27,7 @@ while($true)
 	$b = [tricks]::GetForegroundWindow()
 	if ($b -eq $a) {
 		[W.U32]::mouse_event(6,0,0,0,0);
-        $randomInterval = Get-Random -Minimum 50 -Maximum 200;
+                $randomInterval = Get-Random -Minimum 50 -Maximum 200;
 		Start-Sleep -Milliseconds $randomInterval;
 	}
 	else {
