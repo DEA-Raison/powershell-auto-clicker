@@ -14,23 +14,23 @@ Add-Type @"
 
 # This gets the foreground window as a variable and sets p equal to the process name
 DO {
-	$a = [tricks]::GetForegroundWindow()
-	$p = Get-Process | Where-Object { $_.mainWindowHandle -eq $a } | Select-Object processName | Out-String 
-	
-	#This will continue until powershell is deselected
+    $a = [tricks]::GetForegroundWindow()
+    $p = Get-Process | Where-Object { $_.mainWindowHandle -eq $a } | Select-Object processName | Out-String 
+    
+    #This will continue until powershell is deselected
 } while ($p | Select-String -Pattern "powershell")
 
 
 #left mouse clicks until the window loses focus
 while($true)
 {
-	$b = [tricks]::GetForegroundWindow()
-	if ($b -eq $a) {
-		[W.U32]::mouse_event(6,0,0,0,0);
-                $randomInterval = Get-Random -Minimum 0 -Maximum 200;
-		Start-Sleep -Milliseconds $randomInterval;
-	}
-	else {
-		break;
-	}
+    $b = [tricks]::GetForegroundWindow()
+    if ($b -eq $a) {
+        [W.U32]::mouse_event(6,0,0,0,0);
+        $randomInterval = Get-Random -Minimum 0 -Maximum 200;
+        Start-Sleep -Milliseconds $randomInterval;
+    }
+    else {
+        break;
+    }
 }
