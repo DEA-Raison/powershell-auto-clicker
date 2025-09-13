@@ -1,4 +1,5 @@
 # powershell-auto-clicker
+## auto clicking with powershell
 
 There are 3 separate files to help you click through training:
 + click.ps1 is a simple auto clicker for Windows 10 that will click every 0.6 seconds, it will automatically close when the auto click window is closed.
